@@ -1,0 +1,23 @@
+
+
+<h1>Pagina Principal</h1>
+
+<nav>
+	<a [routerLink] = "['']" [routerLinkActive] = "['active']">Home</a>
+	&nbsp;
+	<a [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Carga</a>
+  &nbsp;
+  <!--
+	<a [routerLink] = "['/articulos']" [routerLinkActive] = "['active']">Articulos</a>
+	&nbsp;
+	<a [routerLink] = "['/venta']" [routerLinkActive] = "['active']">venta</a>
+	&nbsp;
+	<a [routerLink] = "['/informes']" [routerLinkActive] = "['active']">Informes</a>
+  &nbsp;
+  -->
+</nav>
+
+<hr>
+
+<h3>Salida del router-outlet</h3>
+<router-outlet></router-outlet>
