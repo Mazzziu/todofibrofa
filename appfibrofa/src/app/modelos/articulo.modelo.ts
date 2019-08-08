@@ -8,5 +8,17 @@ export class Articulo{
         public alto: number,
         public largo: number,
         public stock: number
-    ){}
+    ){ }
 }
+
+export interface ArticuloDialogData {
+    codigo:string,
+    nombre:string,
+    categoria: string,
+    precio: number,
+    ancho: number,
+    alto: number,
+    largo: number,
+    stock: number
+}
+

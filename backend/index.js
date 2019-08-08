@@ -8,6 +8,7 @@ const port = 2500;
 const ip = 'localhost';
 
 //mongoose.set({ useNewUrlParser: true });
+
 mongoose.connect('mongodb://localhost:2300')
         .then(function(){
             console.log('*** base de datos conectada a la ruta localhost:2300 ***');
@@ -17,4 +18,4 @@ mongoose.connect('mongodb://localhost:2300')
         })
         .catch(function(err){
             console.log(err);
-        })
+        });

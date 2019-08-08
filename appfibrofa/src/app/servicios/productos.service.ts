@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
-import { Articulo } from '../modelos/articulo.modelo'
+import { Articulo } from '../modelos/articulo.modelo';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
+import { Global } from '../global/global';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
 
-  public articulo:Articulo
+  constructor(
+    public _Http: HttpClient
+  ){ }
 
-  constructor() { 
+  nuevoArticulo(producto:Articulo): Observable<any>{
+    let json = JSON.stringify(producto);
+    let headers = new HttpHeaders().set('Content-Type','application/json');
 
-  }
-
-  setArticulo(producto:Articulo){
-    console.log("Articulo: " + producto.nombre + "cargado a DB")
+    return this._Http.post(Global+'/carga/nuevo', json, {headers: headers});
   }
 }

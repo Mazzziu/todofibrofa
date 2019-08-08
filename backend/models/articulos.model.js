@@ -4,13 +4,14 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 var articuloSchema = {
-    id:String,
+    codigo:String,
     nombre:String,
     categoria:String,
     precio:Number,
     ancho:Number,
     alto:Number,
-    largo:Number
+    largo:Number,
+    stock:Number
 }
 
 module.exports = mongoose.model('producto',articuloSchema);

@@ -12,15 +12,31 @@ var controller = {
 
     carga: function(req,res){
 
-        let producto = new articulos_model;
-        producto.nombre = req.nombre;
-        producto.categoria = req.categoria;
-        producto.precio = req.precio;
-        producto.ancho = req.ancho;
-        producto.alto = req.alto;
-        producto.largo = req.largo;
 
-        return res.status(200).send({recibido: producto});
+        let producto = new articulos_model;
+
+        producto.codigo = req.body.codigo;
+        producto.nombre = req.body.nombre;
+        producto.categoria = req.body.categoria;
+        producto.precio = req.body.precio;
+        producto.ancho = req.body.ancho;
+        producto.alto = req.body.alto;
+        producto.largo = req.body.largo;
+        producto.stock = req.body.stock;
+
+        console.log(req.body.nombre);
+        //return res.status(200).send({'recibido': producto});
+
+        producto.save(function(err,productStored){
+
+            if (err) return res.status(500).send({mensaje: 'no se pudo guardar el producto'});
+            if (!productStored) return res.status(404).send({mensaje:'producto no encontrado'});
+            return res.status(200).send({
+                                            mensaje:'Producto guardado correctamente',
+                                            producto: productStored
+                                        });
+        });
+
     }
 
 }

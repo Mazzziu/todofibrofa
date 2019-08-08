@@ -8,7 +8,14 @@ const app = express();
 app.use(express.urlencoded({ extended:true })); //para pasar automaticamente todo lo que recibe a json
 app.use(express.json());
 
-//cors
+// Configuracion de cabeceras y cors
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+})
 
 //archivo de rutas
 //const routes = require('./routes/routes.routes');

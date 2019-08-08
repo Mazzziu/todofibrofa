@@ -1,23 +1,28 @@
 
-
-<h1>Pagina Principal</h1>
-
+<!--
 <nav>
 	<a [routerLink] = "['']" [routerLinkActive] = "['active']">Home</a>
 	&nbsp;
 	<a [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Carga</a>
   &nbsp;
-  <!--
+  
 	<a [routerLink] = "['/articulos']" [routerLinkActive] = "['active']">Articulos</a>
 	&nbsp;
 	<a [routerLink] = "['/venta']" [routerLinkActive] = "['active']">venta</a>
 	&nbsp;
 	<a [routerLink] = "['/informes']" [routerLinkActive] = "['active']">Informes</a>
   &nbsp;
-  -->
+  
 </nav>
-
 <hr>
+-->
 
-<h3>Salida del router-outlet</h3>
-<router-outlet></router-outlet>
+<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Home</button>
+<button mat-button [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Carga</button>
+
+<div class="mat-app-background basic-container">
+	<router-outlet></router-outlet>	 
+</div>
+ 
+
+

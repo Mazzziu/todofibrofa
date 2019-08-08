@@ -1,34 +1,52 @@
 
 <h3>Carga de articulos</h3>
-<form>
-            <mat-form-field>
-                <input matInput placeholder="Nombre de producto" [(ngModel)]="campo_nombre" name="campo_nombre_producto" required>
-            </mat-form-field>&nbsp;
-            <mat-form-field>
-                <input matInput placeholder="Categoria" [(ngModel)]="campo_categoria" name="campo_categoria" required>
-            </mat-form-field>&nbsp;
-            <mat-form-field>
-                <input matInput placeholder="Precio" type="number" [(ngModel)]="campo_precio" name="campo_precio" required>
-                <span matPrefix>$&nbsp;</span>
-            </mat-form-field><br>
-            <mat-form-field>
-                <input matInput placeholder="Ancho" type="number" [(ngModel)]="campo_ancho" name="campo_ancho" required>
-                <span matSuffix>cm</span>
-            </mat-form-field>&nbsp;
-            <mat-form-field>
-                <input matInput placeholder="Alto" type="number" [(ngModel)]="campo_alto" name="campo_alto" required>
-                <span matSuffix>cm</span>
-            </mat-form-field>&nbsp;   
-            <mat-form-field>
-                <input matInput placeholder="Largo" type="number" [(ngModel)]="campo_largo" name="campo_alto" required>
-                <span matSuffix>cm</span>
-            </mat-form-field><br>
-            
-            <button mat-raised-button color="warn" (click)="agregarProducto()"> Cargar </button>
+<form #formCarga="ngForm" (ngSubmit)="agregarProducto()">
+    <mat-form-field>
+        <input matInput placeholder="Nombre de producto" #nombre="ngModel" [(ngModel)]="campo_nombre" name="campo_nombre" required>
+        <mat-error *ngIf="nombre.invalid ">{{formControl.getErrorMessage("nombre")}}</mat-error>
+    </mat-form-field>
+    
+    &nbsp;
+
+    <mat-form-field>
+        <input matInput placeholder="Categoria" #categoria="ngModel"  [(ngModel)]="campo_categoria" name="campo_categoria" required>
+        <mat-error *ngIf="categoria.invalid">{{formControl.getErrorMessage("categoria")}}</mat-error>
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field>
+        <input matInput placeholder="Precio" type="number" #precio="ngModel"  [(ngModel)]="campo_precio" name="campo_precio" required>
+        <span matPrefix>$&nbsp;</span>
+        <mat-error *ngIf="precio.invalid">{{formControl.getErrorMessage("precio")}}</mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <input matInput placeholder="Ancho" type="number" #ancho="ngModel"  [(ngModel)]="campo_ancho" name="campo_ancho" required>
+        <span matSuffix>cm</span>
+        <mat-error *ngIf="ancho.invalid">{{formControl.getErrorMessage("ancho")}}</mat-error>
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field>
+        <input matInput placeholder="Alto" type="number" #alto="ngModel"  [(ngModel)]="campo_alto" name="campo_alto" required>
+        <span matSuffix>cm</span>
+        <mat-error *ngIf="alto.invalid">{{formControl.getErrorMessage("alto")}}</mat-error>
+    </mat-form-field>
+
+    &nbsp;
+
+    <mat-form-field>
+        <input matInput placeholder="Largo" type="number" #largo="ngModel"  [(ngModel)]="campo_largo" name="campo_largo" required>
+        <span matSuffix>cm</span>
+        <mat-error *ngIf="largo.invalid">{{formControl.getErrorMessage("largo")}}</mat-error>
+    </mat-form-field>
+    
+    <br>
+
+    <button mat-raised-button color="warn" [disabled]="!formCarga.form.valid" > Cargar </button>
             
 </form>
-
-
-
-
-
