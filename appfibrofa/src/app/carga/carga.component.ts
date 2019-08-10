@@ -92,7 +92,7 @@ class FormError{
     this.alto = new FormControl('',Validators.required);
     this.largo = new FormControl('',Validators.required);
   }
-
+  
   getErrorMessage(input:string) {
     switch (input){
       case "nombre": {

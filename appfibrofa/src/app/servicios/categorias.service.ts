@@ -15,7 +15,7 @@ export class CategoriasService {
 
   constructor( public _Http:HttpClient ) {
     this.urlSet = "/carga/nuevacategoria"
-    this.urlGet = "";
+    this.urlGet = "/carga/listarcategorias";
    }
 
    setCategoria(categoria:Categoria): Observable <any>{

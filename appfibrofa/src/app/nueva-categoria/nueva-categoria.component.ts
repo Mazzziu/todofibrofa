@@ -16,9 +16,10 @@ export class NuevaCategoriaComponent implements OnInit {
 
   public controlNombre: FormControl;
 
-  public categoria:Categoria;
+  public categoria:Categoria; //variable para crear nueva categoria
   public campo_categoria;
   public campo_disminutivo;
+  public listaCategorias; //variable para listar las categorias
 
   constructor(fb: FormBuilder, private _CategoriasService:CategoriasService) { 
     this.options = fb.group({floatLabel: 'auto',});
@@ -26,6 +27,8 @@ export class NuevaCategoriaComponent implements OnInit {
   }
 
   ngOnInit() {
+    //al inicio se ejecuta la funcion de listar las categorias
+    this.listarCategorias();
   }
 
   getErrorMessage() {
@@ -39,10 +42,23 @@ export class NuevaCategoriaComponent implements OnInit {
     this._CategoriasService.setCategoria(this.categoria).subscribe(
       result =>{
         console.log(result);
+        this.listarCategorias() //una vez guardada la categoria vuelve a listar
       },
       err =>{
         console.log(err);
       }
     );
+  }
+
+  listarCategorias(){
+    this._CategoriasService.getCategoria().subscribe(
+      result =>{
+        //se asignan las categorias que encuentra en listaCategorias
+        this.listaCategorias = result;
+      },
+      err =>{
+        console.log(err);
+      }
+    )
   }
 }

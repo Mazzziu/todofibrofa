@@ -19,5 +19,6 @@
 <h3>Categorias actuales</h3>
 
 <ul>
-    <li></li>
+    <li *ngFor="let value of listaCategorias">{{value.categoria}} - {{value.disminutivo}}</li>
 </ul>
+
