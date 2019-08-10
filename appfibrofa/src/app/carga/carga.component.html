@@ -7,12 +7,15 @@
     </mat-form-field>
     
     &nbsp;
-
     <mat-form-field>
-        <input matInput placeholder="Categoria" #categoria="ngModel"  [(ngModel)]="campo_categoria" name="campo_categoria" required>
-        <mat-error *ngIf="categoria.invalid">{{formControl.getErrorMessage("categoria")}}</mat-error>
+    <mat-label>Categoria</mat-label>
+    <mat-select #categoria="ngModel" [(ngModel)]="campo_categoria" name="campo_categoria" required>
+      <mat-option *ngFor="let value of listaCategorias" [value]="value.categoria">
+        {{value.categoria}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="categoria.invalid">{{formControl.getErrorMessage("categoria")}}</mat-error>
     </mat-form-field>
-
     &nbsp;
 
     <mat-form-field>

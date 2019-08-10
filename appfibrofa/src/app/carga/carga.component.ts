@@ -5,13 +5,14 @@ import { ProductosService } from '../servicios/productos.service';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import {FormControl, Validators} from '@angular/forms';
+import { CategoriasService } from '../servicios/categorias.service';
 
 
 @Component({
   selector: 'app-carga',
   templateUrl: './carga.component.html',
   styleUrls: ['./carga.component.css'],
-  providers:[FormBuilder, ProductosService]
+  providers:[FormBuilder, ProductosService, CategoriasService]
 })
 export class CargaComponent implements OnInit {
   public options: FormGroup; 
@@ -27,13 +28,15 @@ export class CargaComponent implements OnInit {
   public campo_alto: number;
   public campo_largo: number;
 
-  constructor( fb: FormBuilder, private _productos:ProductosService, public dialog: MatDialog ) { 
+  public listaCategorias; //lista de categorias
+
+  constructor( fb: FormBuilder, private _Productos:ProductosService, public dialog: MatDialog, public _CategoriasService:CategoriasService ) { 
     this.options = fb.group({floatLabel: 'auto',});
     this.formControl = new FormError;
   }
 
   ngOnInit() {
-   
+    this.listarCategorias();
   }
 
 
@@ -50,7 +53,7 @@ export class CargaComponent implements OnInit {
                                 );
 
    //agrega un articulo, peticion por post
-    this._productos.nuevoArticulo(this.producto).subscribe(
+    this._Productos.nuevoArticulo(this.producto).subscribe(
       result =>{
         console.log(result);
         this.openDialog(this.producto);
@@ -69,6 +72,18 @@ export class CargaComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       //console.log(`Dialog result: ${result}`);
     });
+  }
+  listarCategorias(){
+    this._CategoriasService.getCategoria().subscribe(
+      result =>{
+        //se asignan las categorias que encuentra en listaCategorias
+        this.listaCategorias = result;
+        console.log(this.listaCategorias);
+      },
+      err =>{
+        console.log(err);
+      }
+    )
   }
 }
 
@@ -92,7 +107,7 @@ class FormError{
     this.alto = new FormControl('',Validators.required);
     this.largo = new FormControl('',Validators.required);
   }
-  
+
   getErrorMessage(input:string) {
     switch (input){
       case "nombre": {
