@@ -22,6 +22,7 @@ export class CargaComponent implements OnInit {
   public campo_nombre: string;
   public campo_categoria: string;
   public campo_precio: number;
+  public campo_stock:number;
   public campo_ancho: number;
   public campo_alto: number;
   public campo_largo: number;
@@ -36,16 +37,16 @@ export class CargaComponent implements OnInit {
   }
 
 
-  agregarProducto(){
+  agregarProducto(form){
     this.producto = new Articulo(
                                   "abc123",
                                   this.campo_nombre,
                                   this.campo_categoria,
                                   this.campo_precio,
+                                  this.campo_stock,
                                   this.campo_ancho,
                                   this.campo_alto,
                                   this.campo_largo,
-                                  10
                                 );
 
    //agrega un articulo, peticion por post
@@ -53,7 +54,7 @@ export class CargaComponent implements OnInit {
       result =>{
         console.log(result);
         this.openDialog(this.producto);
-        
+        form.reset();
       },
       err =>{
         console.log(err);
@@ -69,10 +70,6 @@ export class CargaComponent implements OnInit {
       //console.log(`Dialog result: ${result}`);
     });
   }
-
-
-
-
 }
 
 
@@ -105,6 +102,9 @@ class FormError{
         return this.categoria.hasError('required') ? 'El campo '+ input +' es requerido!':'ok';
       }
       case "precio": {
+        return this.precio.hasError('required') ? 'El campo '+ input +' es requerido!':'ok';
+      }
+      case "stock": {
         return this.precio.hasError('required') ? 'El campo '+ input +' es requerido!':'ok';
       }
       case "ancho": {

@@ -14,7 +14,7 @@ export class CategoriasService {
   public urlGet:string;
 
   constructor( public _Http:HttpClient ) {
-    this.urlSet = ""
+    this.urlSet = "/carga/nuevacategoria"
     this.urlGet = "";
    }
 

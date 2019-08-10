@@ -20,6 +20,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HomeComponent } from './home/home.component'
 import { CargaComponent } from './carga/carga.component';
 import { DialogComponent } from './carga/dialog/dialog.component';
+import { NuevaCategoriaComponent } from './nueva-categoria/nueva-categoria.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { DialogComponent } from './carga/dialog/dialog.component';
     CargaComponent,
     HomeComponent,
     DialogComponent,
+    NuevaCategoriaComponent,
   ],
   imports: [
     BrowserModule,

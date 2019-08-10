@@ -1,0 +1,23 @@
+<h1>Cargar Categoria</h1>
+
+<h3>Nueva Catgoria</h3>
+<form #formCategoria = "ngForm" (ngSubmit)="cargarCategoria()">
+    <mat-form-field>
+        <input matInput placeholder="Nombre de categoria" #nombre="ngModel" [(ngModel)]="campo_categoria" name="campo_categoria" required>
+        <mat-error *ngIf="nombre.invalid ">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Disminutivo" #disminutivo="ngModel" [(ngModel)]="campo_disminutivo" name="campo_disminutivo" required>
+        <mat-error *ngIf="disminutivo.invalid ">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    &nbsp;
+
+    <button mat-raised-button color="warn" [disabled]="!formCategoria.form.valid"> Cargar </button>
+</form>
+
+<h3>Categorias actuales</h3>
+
+<ul>
+    <li></li>
+</ul>

@@ -1,4 +1,7 @@
 export class Categoria {
-    constructor( public categoria:string ){ }
+    constructor( 
+                    public categoria:string, 
+                    public disminutivo:string
+                ){ }
 }
 

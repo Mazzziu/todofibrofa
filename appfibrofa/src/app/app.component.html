@@ -17,8 +17,12 @@
 <hr>
 -->
 
-<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Home</button>
-<button mat-button [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Carga</button>
+<button mat-button  [routerLink] = "['']" [routerLinkActive] = "['active']">Home</button>
+<button mat-button [matMenuTriggerFor]="belowMenu" >Cargar</button>
+<mat-menu #belowMenu="matMenu" yPosition="below">
+	<button mat-button [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Nuevo Articulo</button><br>
+	<button mat-button [routerLink] = "['/nuevacategoria']" [routerLinkActive] = "['active']">Nueva Categoria</button>
+  </mat-menu>
 
 <div class="mat-app-background basic-container">
 	<router-outlet></router-outlet>	 

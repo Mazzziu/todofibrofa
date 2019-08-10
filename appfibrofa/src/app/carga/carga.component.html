@@ -1,6 +1,6 @@
 
 <h3>Carga de articulos</h3>
-<form #formCarga="ngForm" (ngSubmit)="agregarProducto()">
+<form #formCarga="ngForm" (ngSubmit)="agregarProducto(formCarga)">
     <mat-form-field>
         <input matInput placeholder="Nombre de producto" #nombre="ngModel" [(ngModel)]="campo_nombre" name="campo_nombre" required>
         <mat-error *ngIf="nombre.invalid ">{{formControl.getErrorMessage("nombre")}}</mat-error>
@@ -19,6 +19,14 @@
         <input matInput placeholder="Precio" type="number" #precio="ngModel"  [(ngModel)]="campo_precio" name="campo_precio" required>
         <span matPrefix>$&nbsp;</span>
         <mat-error *ngIf="precio.invalid">{{formControl.getErrorMessage("precio")}}</mat-error>
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+        <input matInput placeholder="Stock" type="number" #stock="ngModel"  [(ngModel)]="campo_stock" name="campo_stock" required>
+        <span matSuffix>Unidades</span>
+        <mat-error *ngIf="stock.invalid">{{formControl.getErrorMessage("stock")}}</mat-error>
     </mat-form-field>
 
     <br>
@@ -47,6 +55,6 @@
     
     <br>
 
-    <button mat-raised-button color="warn" [disabled]="!formCarga.form.valid" > Cargar </button>
+    <button mat-raised-button color="warn" [disabled]="!formCarga.form.valid"> Cargar </button>
             
 </form>
