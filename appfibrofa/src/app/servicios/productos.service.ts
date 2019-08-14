@@ -19,4 +19,8 @@ export class ProductosService {
 
     return this._Http.post(Global+'/carga/nuevo', json, {headers: headers});
   }
+
+  contarRegistrosPorCategoria(categoria:String): Observable<any>{
+    return this._Http.get(Global + '/carga/contar/'+categoria);
+  }
 }

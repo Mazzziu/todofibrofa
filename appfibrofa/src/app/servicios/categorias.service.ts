@@ -27,4 +27,8 @@ export class CategoriasService {
    getCategoria():Observable <any>{
     return this._Http.get(Global+this.urlGet);
    }
+
+   buscarDisminutivo(categoria){
+     return this._Http.get(Global + '/carga/obtenerdisminutivo/'+categoria);
+   }
 }

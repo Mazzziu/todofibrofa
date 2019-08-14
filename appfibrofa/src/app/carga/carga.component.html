@@ -1,9 +1,16 @@
 
 <h3>Carga de articulos</h3>
 <form #formCarga="ngForm" (ngSubmit)="agregarProducto(formCarga)">
-    <mat-form-field>
-        <input matInput placeholder="Nombre de producto" #nombre="ngModel" [(ngModel)]="campo_nombre" name="campo_nombre" required>
-        <mat-error *ngIf="nombre.invalid ">{{formControl.getErrorMessage("nombre")}}</mat-error>
+
+    <mat-form-field class="input">
+            <input matInput placeholder="Codigo de producto" #codigo="ngModel" [(ngModel)]="campo_codigo" name="campo_codigo" required >
+            <mat-error *ngIf="codigo.invalid">{{formControl.getErrorMessage("codigo")}}</mat-error>
+    </mat-form-field>
+
+    &nbsp;
+    <mat-form-field class="input">
+        <input matInput placeholder="Nombre de producto" #nombre="ngModel" [(ngModel)]="campo_nombre" name="campo_nombre" style="text-transform:uppercase" required >
+        <mat-error *ngIf="nombre.invalid">{{formControl.getErrorMessage("nombre")}}</mat-error>
     </mat-form-field>
     
     &nbsp;
@@ -16,6 +23,7 @@
     </mat-select>
     <mat-error *ngIf="categoria.invalid">{{formControl.getErrorMessage("categoria")}}</mat-error>
     </mat-form-field>
+
     &nbsp;
 
     <mat-form-field>
