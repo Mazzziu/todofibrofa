@@ -18,18 +18,18 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 //mis componentes
 import { HomeComponent } from './home/home.component'
-import { CargaComponent } from './carga/carga.component';
-import { DialogComponent } from './carga/dialog/dialog.component';
+import { NuevoArticuloComponent } from './cargar/nuevo-articulo/nuevo-articulo.component';
+import { DialogComponent } from './cargar/nuevo-articulo/dialog/dialog.component';
 import { NuevaCategoriaComponent } from './nueva-categoria/nueva-categoria.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CargaComponent,
+    NuevoArticuloComponent,
     HomeComponent,
     DialogComponent,
-    NuevaCategoriaComponent,
+    NuevaCategoriaComponent
   ],
   imports: [
     BrowserModule,

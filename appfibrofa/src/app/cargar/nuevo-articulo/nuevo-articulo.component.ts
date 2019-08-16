@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Articulo } from '../modelos/articulo.modelo';
-import { ProductosService } from '../servicios/productos.service';
+import { Articulo } from '../../modelos/articulo.modelo';
+import { ProductosService } from '../../servicios/productos.service';
 import { DialogComponent } from './dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import {FormControl, Validators} from '@angular/forms';
-import { CategoriasService } from '../servicios/categorias.service';
+import { CategoriasService } from '../../servicios/categorias.service';
 
 
 
 @Component({
-  selector: 'app-carga',
-  templateUrl: './carga.component.html',
-  styleUrls: ['./carga.component.css'],
+  selector: 'app-nuevo-articulo',
+  templateUrl: './nuevo-articulo.component.html',
+  styleUrls: ['./nuevo-articulo.component.css'],
   providers:[FormBuilder, ProductosService, CategoriasService]
 })
-export class CargaComponent implements OnInit {
+export class NuevoArticuloComponent implements OnInit {
   public options: FormGroup; 
 
   public formControl; // variable de la clase FromError

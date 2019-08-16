@@ -1,28 +1,25 @@
 
-<!--
-<nav>
-	<a [routerLink] = "['']" [routerLinkActive] = "['active']">Home</a>
-	&nbsp;
-	<a [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Carga</a>
-  &nbsp;
-  
-	<a [routerLink] = "['/articulos']" [routerLinkActive] = "['active']">Articulos</a>
-	&nbsp;
-	<a [routerLink] = "['/venta']" [routerLinkActive] = "['active']">venta</a>
-	&nbsp;
-	<a [routerLink] = "['/informes']" [routerLinkActive] = "['active']">Informes</a>
-  &nbsp;
-  
-</nav>
-<hr>
--->
 
 <button mat-button  [routerLink] = "['']" [routerLinkActive] = "['active']">Home</button>
-<button mat-button [matMenuTriggerFor]="belowMenu" >Cargar</button>
-<mat-menu #belowMenu="matMenu" yPosition="below">
-	<button mat-button [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Nuevo Articulo</button><br>
-	<button mat-button [routerLink] = "['/nuevacategoria']" [routerLinkActive] = "['active']">Nueva Categoria</button>
-  </mat-menu>
+<button mat-button  [routerLink] = "['']" [routerLinkActive] = "['active']">Cobrar</button>
+<button mat-button [matMenuTriggerFor]="menuConsultar" >Consultar</button>
+<mat-menu #menuConsultar="matMenu" yPosition="below">
+		<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Buscar Pedido</button><br>
+		<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Buscar Articulo</button><br>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="cargarMenu" >Cargar</button>
+<mat-menu #cargarMenu="matMenu" yPosition="below">
+	<button mat-button [routerLink] = "['/carga']" [routerLinkActive] = "['active']">Nuevo Pedido</button><br>
+	<button mat-button [routerLink] = "['/nuevo-articulo']" [routerLinkActive] = "['active']">Nuevo Articulo</button><br>
+	<button mat-button [routerLink] = "['/nuevacategoria']" [routerLinkActive] = "['active']">Nueva Categoria</button><br>
+	<button mat-button [routerLink] = "['/nuevacategoria']" [routerLinkActive] = "['active']">Materia prima y costos</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="menuModificar" >Modificar</button>
+<mat-menu #menuModificar="matMenu" yPosition="below">
+		<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Pedido</button><br>
+		<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Articulo</button><br>
+		<button mat-button [routerLink] = "['']" [routerLinkActive] = "['active']">Categoria</button>
+</mat-menu>
 
 <div class="mat-app-background basic-container">
 	<router-outlet></router-outlet>	 

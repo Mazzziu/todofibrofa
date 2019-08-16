@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Articulo, ArticuloDialogData } from '../../modelos/articulo.modelo';
+import { Articulo, ArticuloDialogData } from '../../../modelos/articulo.modelo';
 
 @Component({
   selector: 'app-dialog',
